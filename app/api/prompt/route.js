@@ -1,7 +1,9 @@
 import { connectToDB } from '@utils/database';
 import Prompt from '@models/prompt';
 
-export const GET = async () => {
+// the request argument doesn't seem to be needed 
+// but was included in the tutorial
+export const GET = async (request) => {
     try {
       await connectToDB();
       const prompts = await Prompt.find({}).populate("creator");
