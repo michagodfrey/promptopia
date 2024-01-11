@@ -9,7 +9,7 @@ export const GET = async (request, { params }) => {
 
     if (!prompt) return new Response("Prompt not found", { status: 404 });
 
-    return new Response(JSON.stringify(prompts), { status: 200 });
+    return new Response(JSON.stringify(prompt), { status: 200 });
 
   } catch (error) {
     return new Response("Failed to fetch prompts :(", { status: 500 });
@@ -31,7 +31,7 @@ export const PATCH = async (request, { params }) => {
 
         await existingPrompt.save();
 
-        return Response(JSON.stringify(existingPrompt), { status: 200 });
+        return new Response(JSON.stringify(existingPrompt), { status: 200 });
 
     } catch (error) {
         return new Response("Failed to update prompt", { status: 500 });
@@ -40,5 +40,13 @@ export const PATCH = async (request, { params }) => {
 
 // DELETE
 export const DELETE = async (request, { params }) => {
+  try {
+    await connectToDB();
 
+    await Prompt.findByIdAndDelete(params.id);
+
+    return new Response("Prompt deleted", { status: 200});
+  } catch (error) {
+    return new Response("Failed to delete prompt", { status: 500});
+  }
 }

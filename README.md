@@ -2,6 +2,15 @@
 
 This is a Next.js project. It was built following [this tutorial](https://www.youtube.com/watch?v=wm5gMKuwSYk) by [JavaScript Mastery](https://www.youtube.com/@javascriptmastery)
 
+Features to implement:
+    search
+        search by prompt content
+        search by tag
+        search by user
+    filter by tag
+    view other profiles
+        url: profile/id/profile-name
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
