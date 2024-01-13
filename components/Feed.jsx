@@ -19,10 +19,7 @@ const PromptCardList = ({ data, handleTagClick }) => {
 const Feed = () => {
   const [searchText, setSearchText] = useState('');
   const [posts, setPosts] = useState([]);
-
-  const handleSearchChange = (e) => {
-
-  }
+  const [tag, setTag] = useState('');
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -32,6 +29,14 @@ const Feed = () => {
     }
     fetchPosts();
   }, []);
+
+   const handleSearchChange = (e) => {
+     setSearchText(e.target.value);
+   };
+
+   const handleTagClick = (tag) => {
+    setTag(tag);
+   }
 
   return (
     <section className="feed">
@@ -46,7 +51,22 @@ const Feed = () => {
         />
       </form>
 
-      <PromptCardList data={posts} handleTagClick={[]} />
+      <PromptCardList
+        data={
+          tag
+            ? posts.filter((post) =>
+                post.tag.toLowerCase().includes(tag.toLowerCase())
+              )
+            : posts.filter(
+                (post) =>
+                  post.prompt
+                    .toLowerCase()
+                    .includes(searchText.toLowerCase()) ||
+                  post.tag.toLowerCase().includes(searchText.toLowerCase())
+              )
+        }
+        handleTagClick={handleTagClick}
+      />
     </section>
   );
 }

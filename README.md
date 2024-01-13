@@ -2,12 +2,14 @@
 
 This is a Next.js project. It was built following [this tutorial](https://www.youtube.com/watch?v=wm5gMKuwSYk) by [JavaScript Mastery](https://www.youtube.com/@javascriptmastery)
 
+I completed the following features without tutorial guidance:
+    - Search by prompt content
+    - Filter by tag
+    - Search by tag
+
 Features to implement:
     search
-        search by prompt content
-        search by tag
         search by user
-    filter by tag
     view other profiles
         url: profile/id/profile-name
 
