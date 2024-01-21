@@ -3,17 +3,17 @@
 This is a Next.js project. It was built following [this tutorial](https://www.youtube.com/watch?v=wm5gMKuwSYk) by [JavaScript Mastery](https://www.youtube.com/@javascriptmastery)
 
 I completed the following features without tutorial guidance:
-    - Search by prompt content
-    - Filter by tag
-    - Search by tag
 
-Features to implement:
-    search
-        search by user
-    view other profiles
-        url: profile/id/profile-name
+- Search by prompt content
+- Search by username
+- Search by tag
+- Filter by tag
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+I completed these features with help from Next.js documentation and AI:
+
+- View other profiles
+
+This [Next.js](https://nextjs.org/) project was bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 

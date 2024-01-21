@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import PromptCard from './PromptCard';
 
 const PromptCardList = ({ data, handleTagClick }) => {
+  
   return (
     <div className="mt-16 prompt_layout">
       {data.map((post) => (
@@ -19,7 +20,6 @@ const PromptCardList = ({ data, handleTagClick }) => {
 const Feed = () => {
   const [searchText, setSearchText] = useState('');
   const [posts, setPosts] = useState([]);
-  const [tag, setTag] = useState('');
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -30,13 +30,13 @@ const Feed = () => {
     fetchPosts();
   }, []);
 
-   const handleSearchChange = (e) => {
-     setSearchText(e.target.value);
-   };
+  const handleSearchChange = (e) => {
+    setSearchText(e.target.value);
+  };
 
-   const handleTagClick = (tag) => {
-    setTag(tag);
-   }
+  const handleTagClick = (tag) => {
+  setSearchText(tag)
+  }
 
   return (
     <section className="feed">
@@ -53,17 +53,12 @@ const Feed = () => {
 
       <PromptCardList
         data={
-          tag
-            ? posts.filter((post) =>
-                post.tag.toLowerCase().includes(tag.toLowerCase())
-              )
-            : posts.filter(
-                (post) =>
-                  post.prompt
-                    .toLowerCase()
-                    .includes(searchText.toLowerCase()) ||
-                  post.tag.toLowerCase().includes(searchText.toLowerCase())
-              )
+          posts.filter(
+            (post) =>
+              post.prompt.toLowerCase().includes(searchText.toLowerCase()) ||
+              post.tag.toLowerCase().includes(searchText.toLowerCase()) ||
+              post.creator.username.toLowerCase().includes(searchText.toLowerCase())
+          )
         }
         handleTagClick={handleTagClick}
       />
