@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react';
 import PromptCard from './PromptCard';
+import Loading from './Loading';
 
 const PromptCardList = ({ data, handleTagClick }) => {
   
@@ -20,12 +21,14 @@ const PromptCardList = ({ data, handleTagClick }) => {
 const Feed = () => {
   const [searchText, setSearchText] = useState('');
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch('/api/prompt');
       const data = await response.json();
       setPosts(data);
+      setLoading(false);
     }
     fetchPosts();
   }, []);
@@ -42,6 +45,7 @@ const Feed = () => {
     <section className="feed">
       <form className="relative w-full flex-center">
         <input
+          name="search"
           type="text"
           placeholder="Search for a tag or username"
           value={searchText}
@@ -51,17 +55,21 @@ const Feed = () => {
         />
       </form>
 
-      <PromptCardList
-        data={
-          posts.filter(
+      {loading ? (
+        <Loading />
+      ) : (
+        <PromptCardList
+          data={posts.filter(
             (post) =>
               post.prompt.toLowerCase().includes(searchText.toLowerCase()) ||
               post.tag.toLowerCase().includes(searchText.toLowerCase()) ||
-              post.creator.username.toLowerCase().includes(searchText.toLowerCase())
-          )
-        }
-        handleTagClick={handleTagClick}
-      />
+              post.creator.username
+                .toLowerCase()
+                .includes(searchText.toLowerCase())
+          )}
+          handleTagClick={handleTagClick}
+        />
+      )}
     </section>
   );
 }

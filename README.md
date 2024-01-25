@@ -8,6 +8,7 @@ I completed the following features without tutorial guidance:
 - Search by username
 - Search by tag
 - Filter by tag
+- Loading component and page
 
 I completed these features with help from Next.js documentation and AI:
 

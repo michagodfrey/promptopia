@@ -13,8 +13,9 @@ export const connectToDB = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_URI, {
           dbName: "share_prompt",
-          useNewUrlParser: true,
-          useUnifiedTopology: true,
+        //   the next 2 lines are were in tutorial and throwing deprecation errors   
+        //   useNewUrlParser: true,
+        //   useUnifiedTopology: true,
         });
 
         isConnected = true;

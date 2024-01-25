@@ -20,6 +20,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             Your AI Prompt
           </span>
           <textarea
+            name="prompt"
             value={post.prompt}
             onChange={(e) => setPost({ ...post, prompt: e.target.value })}
             placeholder="Write your prompt here..."
@@ -33,6 +34,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             <span className="font-normal">(#product, #webdevelopment, #idea)</span>
           </span>
           <input
+            name="tag"
             value={post.tag}
             onChange={(e) => setPost({ ...post, tag: e.target.value })}
             placeholder="#tag"

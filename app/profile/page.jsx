@@ -45,16 +45,16 @@ const MyProfile = () => {
         }
       }
     }
-
-  return (
-    <Profile
-        name="My"
-        desc="This is your profile page"
-        data={posts}
-        handleEdit={handleEdit}
-        handleDelete={handleDelete}
-    />
-  )
+    
+      return (
+        <Profile
+          name="My"
+          desc="This is your profile page"
+          data={posts}
+          handleEdit={handleEdit}
+          handleDelete={handleDelete}
+        />
+      );
 }
 
 export default MyProfile

@@ -1,6 +1,9 @@
 import { connectToDB } from '@utils/database';
 import Prompt from '@models/prompt';
 
+// attempt to address rendering problems in production
+export const dynamic = 'force-dynamic';
+
 // the request argument doesn't seem to be needed 
 // but was included in the tutorial
 export const GET = async (request) => {
