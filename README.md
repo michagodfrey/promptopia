@@ -1,6 +1,6 @@
 # Promptopia
 
-This is a Next.js project. It was built following [this tutorial](https://www.youtube.com/watch?v=wm5gMKuwSYk) by [JavaScript Mastery](https://www.youtube.com/@javascriptmastery)
+This project is retired. It was done to practice Next.js. It was built following [this tutorial](https://www.youtube.com/watch?v=wm5gMKuwSYk) by [JavaScript Mastery](https://www.youtube.com/@javascriptmastery)
 
 I completed the following features without tutorial guidance:
 
